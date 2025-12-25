@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:48:27 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/25 12:31:15 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/25 15:18:52 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 typedef struct st_stack
 {
-    char    *data;
+    int *data;
     int size;
     int content;
 } t_stack;
