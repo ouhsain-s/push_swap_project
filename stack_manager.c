@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 16:06:52 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/26 11:54:38 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/26 12:31:18 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int	add_numbers_tostack(t_stack stack, int num_s, char ** arr_s)
 
 	if (!allocate_new_stack(stack, 1000))
 		return(0);
+	
 	i = 1;
 	while (i < num_s)
 	{

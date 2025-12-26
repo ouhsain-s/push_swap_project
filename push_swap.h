@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:48:27 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/26 11:53:17 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/26 12:31:46 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 typedef struct st_stack
 {
