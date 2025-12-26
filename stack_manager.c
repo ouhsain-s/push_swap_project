@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 16:06:52 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/26 15:42:30 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/26 16:46:36 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ int	insert_AT_end(node **head, int value)
 
 int	is_complet_number(char *s, int j)
 {
-	if (j == 0)
+	if (j == 0 && s[j + 1] != '\0')
 		return (0);
-	if (ft_isdigit(s[j - 1]) && !ft_isdigit(s[j]))
-		return (1);
 	if (s[j + 1] == '\0' && ft_isdigit(s[j]))
 		return(1);
+	if (ft_isdigit(s[j - 1]) && !ft_isdigit(s[j]))
+	return (1);
 	return (0);
 }
 static int	counvert_num(char *arg, node **head, int *start, int j)
@@ -77,10 +77,18 @@ int	add_numbers_tostack(node **head, int num_s, char ** arr_s)
 		start = 0;
 		while (arr_s[i][j] != '\0')
 		{
+			//printf("\n in the bigin pars %c\n", arr_s[i][j]);
+		
+			
 			if (!is_recognized_char_in_string(arr_s[i], j))
 				return(0);
+
+				
 			if (is_complet_number(arr_s[i], j))
 			{
+				//printf("\nicomplet start = %d j = %d\n", start , j);
+
+				
 				if (!counvert_num(arr_s[i], head, &start, j))
 					return (0);
 			}
