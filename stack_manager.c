@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 16:06:52 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/26 16:46:36 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/26 18:05:50 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,18 +77,10 @@ int	add_numbers_tostack(node **head, int num_s, char ** arr_s)
 		start = 0;
 		while (arr_s[i][j] != '\0')
 		{
-			//printf("\n in the bigin pars %c\n", arr_s[i][j]);
-		
-			
 			if (!is_recognized_char_in_string(arr_s[i], j))
 				return(0);
-
-				
 			if (is_complet_number(arr_s[i], j))
-			{
-				//printf("\nicomplet start = %d j = %d\n", start , j);
-
-				
+			{	
 				if (!counvert_num(arr_s[i], head, &start, j))
 					return (0);
 			}
@@ -96,5 +88,7 @@ int	add_numbers_tostack(node **head, int num_s, char ** arr_s)
 		}
 		i++;
 	}
+	if (!check_duplicate(*head))
+		return (0);
 	return (1);
 }

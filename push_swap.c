@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:47:00 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/26 16:59:42 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/26 18:16:53 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,16 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (1);
 	if (!add_numbers_tostack(&a, argc, argv))
-		write(1, "error", 5);
+	{
+		write(1, "error\n", 6);
+		free(a);
+	}
 	else
 	{
 		// printf("%d", a->next->next->next->next->value);
 		// printf("%d", a->next->next->next->value);
 		// printf("%d", a->next->next->value);
-		 printf("%d", a->next->value);
+		printf("%d", a->next->value);
 		printf("%d", a->value);
 	}
 		

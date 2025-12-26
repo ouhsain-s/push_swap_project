@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 21:29:05 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/26 16:44:25 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/26 18:14:33 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,35 @@ int	is_recognized_char_in_string(char *s, size_t index)
 	if (s[index] == ' ')
             return (1);		
 	return (0);
+}
+int	check_duplicate(node *head)
+{
+	node *tracker;
+	
+	if (!head)
+			return(1);
+	while (head->next != NULL)
+	{
+		
+		tracker = head->next;
+		while (tracker != NULL)
+		{
+			if (tracker->value == head->value)
+				return (0);
+			tracker = tracker->next;
+		}
+		head = head->next;
+	}
+		return (1);
+}
+void	free_nodes(node *head)
+{
+	node *current;
+	
+	while (head)
+	{
+		current = head;
+		head = head->next;
+		free(current);
+	}
 }
