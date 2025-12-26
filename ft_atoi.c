@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 12:49:01 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/25 17:54:39 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/26 11:21:13 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,10 @@ static  int     ft_isspace(char c)
         return (0);
 }
 
-static  int     check_overflow(long *num, long tmp, int sign)
+static  int     check_overflow(int *num, int tmp)
 {
         if (*num / 10 != tmp)
         {
-                if (sign == -1)
-                        *num = 0;
-                else
-                        *num = -1;
                 return (1);
         }
         return (0);
@@ -36,8 +32,8 @@ int     ft_atoi(const char *str)
 {
         int             count;
         int             sign;
-        long    num;
-        long    tmp;
+        int     num;
+        int     tmp;
 
         num = 0;
         sign = 1;
@@ -52,8 +48,8 @@ int     ft_atoi(const char *str)
         {
                 tmp = num;
                 num = (num * 10) + (str[count] - '0');
-                if (check_overflow(&num, tmp, sign))
-                        return (num);
+                if (check_overflow(&num, tmp))
+                        return (-1);
                 count++;
         }
         return (num * sign);

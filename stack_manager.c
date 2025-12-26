@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 16:06:52 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/25 21:33:40 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/26 11:54:38 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int realoc_stack(int size, t_stack stack)
 {
     int     new_size;
     int     count;
-    char    *old_arr;
+    int    *old_arr;
     
     new_size = stack.size + size;
     if (new_size <= 0)
@@ -58,17 +58,19 @@ int	is_complet_number(char *s, int j)
 		return(1);
 	return (0);
 }
-static int	counvert_num(char *s, t_stack stack, int *start, int j)
+static int	counvert_num(char *arg, t_stack stack, int *start, int j)
 {
-	stack.data[stack.content] = ft_atoi(ft_substr(s, *start, j - *start + 1));			
+	stack.data[stack.content] = ft_atoi(ft_substr(arg, *start, j - *start + 1));			
 	if (stack.content == stack.size - 1)
 	{
-		if (!realloc_size(500, stack));
+		if (!realoc_stack(500, stack));
 			return (0);
 	}
-	if ((stack.data[stack.content] == -1) && !search_Minus_one(*start, j - *start + 1))
-	//create function that search -1 in string provided to it 
-	
+	if ((stack.data[stack.content] == -1))
+	{
+		if (!ft_strnstr(arg, "-1", j - *start + 1))
+			return(0);
+	}	
 		return (0);
 	stack.content++;
 	*start  = j + 1;

@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 21:29:05 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/25 21:31:01 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/26 11:23:44 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,14 @@ int	is_recognized_char_in_string(char *s, size_t index)
 		return (1);
 	if (s[index] == '-' || s[index] == '+')
 	{
+		if (ft_isdigit(s[index - 1]))
+			return (0);
 		if (ft_isdigit(s[index + 1]))
 			return (1);
+		else
+			return (0);
 	}
-	if ((s[index] >= 9 && s[index] <= 13) || s[index] == 32)
+	if (s[index] == ' ')
             return (1);		
 	return (0);
 }
