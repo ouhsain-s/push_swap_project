@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 16:06:52 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/26 18:05:50 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/26 19:00:21 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int	counvert_num(char *arg, node **head, int *start, int j)
 	value = ft_atoi(ft_substr(arg, *start, j - *start + 1));
 	if ((value == -1))
 	{
-		if (!ft_strnstr(arg, "-1", j - *start + 1))
+		if (!ft_strnstr(arg + *start, "-1", j - *start + 1))
 			return(0);
 	}	
 	if (!insert_AT_end(head, value))

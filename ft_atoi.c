@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 12:49:01 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/26 11:21:13 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/26 18:30:14 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static  int     check_overflow(int *num, int tmp)
         return (0);
 }
 
-int     ft_atoi(const char *str)
+int     ft_atoi(char *str)
 {
         int             count;
         int             sign;
@@ -52,5 +52,6 @@ int     ft_atoi(const char *str)
                         return (-1);
                 count++;
         }
+        free(str);
         return (num * sign);
 }
