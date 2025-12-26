@@ -6,46 +6,37 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 16:06:52 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/26 12:31:18 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/26 15:42:30 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int allocate_new_stack(t_stack stack, int size)
+int	insert_AT_end(node **head, int value)
 {
-    stack.data = malloc(sizeof(int) * size);
-    if (!stack.data)
-        return (0);
-	stack.size = size;
-	stack.content = 0;
-    return (1);
-}
-int realoc_stack(int size, t_stack stack)
-{
-    int     new_size;
-    int     count;
-    int    *old_arr;
-    
-    new_size = stack.size + size;
-    if (new_size <= 0)
-        return (0);
-    old_arr = stack.data;
-    stack.data = malloc(sizeof(int) * new_size);
-    if(!stack.data)
-    {
-        stack.data = old_arr;
-        return(0);
-    }
-    stack.size = new_size;
-    count = 0;
-    while (count < stack.content)
-    {
-        stack.data[count] = old_arr[count];
-        count++;
-    }
-    free(old_arr);
-    return(1);
+		node *new_node;
+		node *current;
+
+		new_node = malloc(sizeof(node));
+		if (!new_node)
+			return (0);
+		new_node->next = NULL;
+		new_node->value = value;
+		
+		if(!*head)
+		{
+			new_node->previous = NULL;
+			*head = new_node;
+		}
+		else
+		{
+			current = *head;
+			while (current->next != NULL)
+				current = current->next;
+			new_node->previous = current;
+			current->next = new_node;
+		}
+		return (1);
 }
 
 int	is_complet_number(char *s, int j)
@@ -58,32 +49,26 @@ int	is_complet_number(char *s, int j)
 		return(1);
 	return (0);
 }
-static int	counvert_num(char *arg, t_stack stack, int *start, int j)
+static int	counvert_num(char *arg, node **head, int *start, int j)
 {
-	stack.data[stack.content] = ft_atoi(ft_substr(arg, *start, j - *start + 1));			
-	if (stack.content == stack.size - 1)
-	{
-		if (!realoc_stack(500, stack));
-			return (0);
-	}
-	if ((stack.data[stack.content] == -1))
+	int	value;
+
+	value = ft_atoi(ft_substr(arg, *start, j - *start + 1));
+	if ((value == -1))
 	{
 		if (!ft_strnstr(arg, "-1", j - *start + 1))
 			return(0);
 	}	
+	if (!insert_AT_end(head, value))
 		return (0);
-	stack.content++;
 	*start  = j + 1;
 	return (1);
 }
-int	add_numbers_tostack(t_stack stack, int num_s, char ** arr_s)
+int	add_numbers_tostack(node **head, int num_s, char ** arr_s)
 {
 	int		i;
 	int		j;
 	int		start;
-
-	if (!allocate_new_stack(stack, 1000))
-		return(0);
 	
 	i = 1;
 	while (i < num_s)
@@ -96,7 +81,7 @@ int	add_numbers_tostack(t_stack stack, int num_s, char ** arr_s)
 				return(0);
 			if (is_complet_number(arr_s[i], j))
 			{
-				if (!counvert_num(arr_s[i], stack, &start, j))
+				if (!counvert_num(arr_s[i], head, &start, j))
 					return (0);
 			}
 			j++;
