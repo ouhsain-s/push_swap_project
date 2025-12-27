@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 16:06:52 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/26 19:00:21 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/27 11:29:21 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,9 @@ int	add_numbers_tostack(node **head, int num_s, char ** arr_s)
 			}
 			j++;
 		}
+		if (!start) return (0);
 		i++;
 	}
-	if (!check_duplicate(*head))
-		return (0);
+	if (!check_duplicate(*head)) return (0);
 	return (1);
 }
