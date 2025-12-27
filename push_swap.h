@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:48:27 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/27 12:22:39 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/27 16:20:25 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,11 @@ int     ft_atoi(char *str);
 
 int	add_numbers_tostack(node **head, int num_s, char ** arr_s);
 size_t ft_strlen(const char *s);
+
+
+int swap_value_with_next(node **head);
+int transfer_first_node(node **src, node **dest);
+int rotate_nodes(node **head);
+int revers_rotate_nodes(node **head);
 
 #endif
