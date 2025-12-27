@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 12:45:55 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/26 11:49:59 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/27 12:18:13 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,15 @@ int     ft_isdigit(int d)
                 return (1);
         return (0);
 }
+size_t  ft_strlen(const char *s)
+{
+        size_t  count;
 
-
+        count = 0;
+        while (s[count] != '\0')
+                count++;
+        return (count);
+}
 char    *ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
         size_t  c_haystack;

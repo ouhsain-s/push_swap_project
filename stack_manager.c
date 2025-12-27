@@ -6,13 +6,13 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 16:06:52 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/27 11:29:21 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/27 12:16:28 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	insert_AT_end(node **head, int value)
+static int	insert_AT_end(node **head, int value)
 {
 		node *new_node;
 		node *current;
@@ -39,7 +39,7 @@ int	insert_AT_end(node **head, int value)
 		return (1);
 }
 
-int	is_complet_number(char *s, int j)
+static int	is_complet_number(char *s, int j)
 {
 	if (j == 0 && s[j + 1] != '\0')
 		return (0);

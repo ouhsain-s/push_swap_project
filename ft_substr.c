@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   substr.c                                           :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/26 11:49:01 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/26 11:52:45 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/27 12:18:46 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t  ft_strlen(const char *s)
-{
-        size_t  count;
-
-        count = 0;
-        while (s[count] != '\0')
-                count++;
-        return (count);
-}
-char    *ft_strdup(const char *str)
+static char    *ft_strdup(const char *str)
 {
         size_t  slen;
         size_t  count;
@@ -42,7 +33,7 @@ char    *ft_strdup(const char *str)
         ps[count] = '\0';
         return (ps);
 }
-size_t  ft_strlcpy(char *dest, const char *src, size_t destsize)
+static size_t  ft_strlcpy(char *dest, const char *src, size_t destsize)
 {
         size_t  srclen;
         size_t  count;
