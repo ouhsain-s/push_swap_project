@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 13:26:49 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/27 16:20:00 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/27 20:37:29 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,18 @@ size_t get_stack_size(node *head)
 int swap_value_with_next(node **head)
 {
 	int tmp_value;
-
+	int	tmp_rank;
+	
 	if (!head)
 		return (0);
 	if (*head != NULL && (*head)->next != NULL)
 	{
 		tmp_value = (*head)->value;
+		tmp_rank = (*head)->rank;
 		(*head)->value = (*head)->next->value;
+		(*head)->rank = (*head)->next->rank;
 		(*head)->next->value = tmp_value;
+		(*head)->next->rank = tmp_rank;
 		return (1);
 	}
 	return (0);

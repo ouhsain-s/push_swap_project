@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:48:27 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/27 16:20:25 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/27 20:25:10 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct st_stack
 {
    struct st_stack *next;
    int  value;
+   int   rank;
    struct st_stack *previous;
 } node;
 
