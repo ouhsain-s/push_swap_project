@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:48:27 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/27 20:25:10 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/28 11:40:39 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ int swap_value_with_next(node **head);
 int transfer_first_node(node **src, node **dest);
 int rotate_nodes(node **head);
 int revers_rotate_nodes(node **head);
+size_t indexing_nodes(node *head);
 
 #endif

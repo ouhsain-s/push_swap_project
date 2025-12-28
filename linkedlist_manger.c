@@ -6,23 +6,37 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 13:26:49 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/27 20:37:29 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/28 16:54:56 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t get_stack_size(node *head)
+int	ranking_nodes(node *head)
 {
-	size_t  count;
-	
+	node	*nested;
+	node	*least;
+	size_t	size;
+	size_t	count;
+
+	if (!head)
+		return (0);
+	size = size_ln(head);
 	count = 0;
-	while (head)
+	while (count < size)
 	{
-		head = head->next;
+		nested = head;
+		least = NULL;
+		while (nested)
+		{
+			if (nested->rank == -1 && (!least || nested->value < least->value))
+				least = nested;
+			nested = nested->next;
+		}
+		least->rank = count;
 		count++;
 	}
-	return (count);
+	return (1);
 }
 
 int swap_value_with_next(node **head)
