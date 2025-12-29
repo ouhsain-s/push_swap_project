@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:48:27 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/29 11:09:42 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/29 11:50:07 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ size_t  size_ln(node *head);
 void    sa(node **a, int print_opirator);
 void    sb(node **b, int print_opirator);
 void    ss(node **a, node **b, int print_opirator);
-void    pa(node **a, node **b, int print_operator);
-void    pb(node **b, node **a, int print_operator);
+void    pa(node **b, node **a, int print_operator);
+void    pb(node **a, node **b, int print_operator);
 void    ra(node **a, int print_operator);
 void    rb(node **b, int print_operator);
 void    rr(node **a, node **b, int print_operator);
