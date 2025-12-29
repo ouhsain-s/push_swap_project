@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 10:22:20 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/29 13:18:41 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/29 15:49:57 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,38 +37,42 @@ int sempel_sort(node **a, node **b)
     }
     return (1);
 }
-void    push_element_to_b(node **a, node **b, int min, int size,int *n_pushed)
+int    get_pose_current_rank(node *stack, int rank_to_find)
 {
-    pb(a, b, 1);
-    (*n_pushed)++;
-    if ((*b)->rank < min + size / 2)
-        rb(b, 1);
+    int count;
+
+    count = 0;
+    while (stack)
+    {
+        if (stack->rank == rank_to_find)
+            break;
+        count++;
+        stack = stack->next;
+    }
+    return (count);
 }
 
-void    push_all_elements_to_b(node **a, node **b, int chuck_size)
+void    return_sorted_elements_to_a(node **a, node **b)
 {
-    int chuck_max;
-    int chuck_min;
-    int num_pushed;
-    
-    num_pushed = 0;
-    chuck_min = 0;
-    chuck_max = chuck_size -1;
-    while (*a)
+    int pose;
+    int count;
+
+    pose = 0;
+    count = size_ln(*b) - 1;
+    while (*b)
     {
-        if ((*a)->rank <= chuck_max)
-            push_element_to_b(a, b, chuck_min, chuck_size, &num_pushed);
+        if ((*b)->rank == count)
+        {
+            pa(b, a, 1);
+            count--;
+           pose = get_pose_current_rank(*b, count);
+        }
         else
         {
-            if (get_Nearest_pose_element(*a, chuck_max) <= size_ln(*a) / 2)
-                ra(a, 1);
+            if (pose <= (count + 1) / 2)
+                rb(b, 1);
             else
-                rra(a, 1);
-        }
-        if (num_pushed == chuck_max + 1)
-        {
-            chuck_min = chuck_max + 1;
-            chuck_max += chuck_size;
+                rrb(b, 1);
         }
     }
     
@@ -78,14 +82,18 @@ int sort_by_chucks(node **a, node **b, size_t size_a)
     int num_of_chucks;
     int chuck_size;
     
+    if (!a || !b || !*a)
+        return (0);
+    if (!(*a)->next)
+        return (0);
     if (size_a <= 100)
         chuck_size = 20;
     else
         chuck_size = 45;
-    
-    push_all_elements_to_b();
-    
-        
+    push_all_elements_to_b(a, b, chuck_size);
+    return_sorted_elements_to_a(a, b);
+    ??
+    return (1);    
 }
 int sort_valuse_BYtow_stacks(node **a, node  **b)
 {

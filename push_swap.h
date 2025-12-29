@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:48:27 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/29 11:50:07 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/29 15:06:31 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void    rrr(node **a, node **b, int print_operator);
 
 
 int sort_valuse_BYtow_stacks(node   **a, node    **b);
+void    push_all_elements_to_b(node **a, node **b, int chuck_size);
 
 
 #endif
