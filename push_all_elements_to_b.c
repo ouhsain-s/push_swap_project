@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 15:05:13 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/29 15:36:17 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/29 16:36:33 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void    push_all_elements_to_b(node **a, node **b, int chuck_size)
             push_element_to_b(a, b, chuck_min, chuck_size, &num_pushed);
         else
         {
-            if (get_nearest_chuck_pose(*a, chuck_max) <= size_ln(*a) / 2)
+            if (get_nearest_chuck_pose(*a, chuck_max) <= (int)size_ln(*a) / 2)
                 ra(a, 1);
             else
                 rra(a, 1);

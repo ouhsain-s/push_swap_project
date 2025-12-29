@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 10:22:20 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/29 16:00:45 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/29 16:37:34 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int sempel_sort(node **a, node **b)
 
 int sort_by_chucks(node **a, node **b, size_t size_a)
 {
-    int num_of_chucks;
     int chuck_size;
     
     if (!a || !b || !*a)
@@ -59,7 +58,7 @@ int sort_valuse_BYtow_stacks(node **a, node  **b)
 {
     size_t  size_a;
 
-    size_a = size_ln(a);
+    size_a = size_ln(*a);
     if (size_a < 5)
         return (sempel_sort(a, b));
     else 
