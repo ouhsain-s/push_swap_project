@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:48:27 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/28 11:40:39 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/29 11:09:42 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,22 @@ int transfer_first_node(node **src, node **dest);
 int rotate_nodes(node **head);
 int revers_rotate_nodes(node **head);
 size_t indexing_nodes(node *head);
+size_t  size_ln(node *head);
+
+void    sa(node **a, int print_opirator);
+void    sb(node **b, int print_opirator);
+void    ss(node **a, node **b, int print_opirator);
+void    pa(node **a, node **b, int print_operator);
+void    pb(node **b, node **a, int print_operator);
+void    ra(node **a, int print_operator);
+void    rb(node **b, int print_operator);
+void    rr(node **a, node **b, int print_operator);
+void    rra(node **a, int print_operator);
+void    rrb(node **b, int print_operator);
+void    rrr(node **a, node **b, int print_operator);
+
+
+int sort_valuse_BYtow_stacks(node   **a, node    **b);
+
 
 #endif
