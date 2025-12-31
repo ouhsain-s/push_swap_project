@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:48:27 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/30 10:40:17 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/31 12:05:37 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,5 @@ int	ranking_nodes(node *head);
 int sort_valuse_BYtow_stacks(node   **a, node    **b);
 void    push_all_elements_to_b(node **a, node **b, int chuck_size);
 void    return_sorted_elements_to_a(node **a, node **b);
-
+void push_chunks_to_b(node **a, node **b, int chuck_size);
 #endif
