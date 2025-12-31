@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 16:06:52 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/27 12:16:28 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/30 11:16:39 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ static int	insert_AT_end(node **head, int value)
 			return (0);
 		new_node->next = NULL;
 		new_node->value = value;
-		
-		if(!*head)
+		new_node->rank = -1;
+		if (!*head)
 		{
 			new_node->previous = NULL;
 			*head = new_node;

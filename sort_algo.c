@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 10:22:20 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/29 16:37:34 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/31 11:33:33 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,11 @@ int sort_by_chucks(node **a, node **b, size_t size_a)
     if (!(*a)->next)
         return (0);
     if (size_a <= 100)
-        chuck_size = 20;
+        chuck_size = 17;
     else
         chuck_size = 45;
     push_all_elements_to_b(a, b, chuck_size);
+    // return(1);
     return_sorted_elements_to_a(a, b);
     return (1);    
 }
@@ -59,6 +60,8 @@ int sort_valuse_BYtow_stacks(node **a, node  **b)
     size_t  size_a;
 
     size_a = size_ln(*a);
+    if (!ranking_nodes(*a))
+        return (0);
     if (size_a < 5)
         return (sempel_sort(a, b));
     else 

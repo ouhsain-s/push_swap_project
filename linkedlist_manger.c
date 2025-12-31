@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 13:26:49 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/28 16:54:56 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/30 11:20:00 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	ranking_nodes(node *head)
 	node	*least;
 	size_t	size;
 	size_t	count;
-
 	if (!head)
 		return (0);
 	size = size_ln(head);

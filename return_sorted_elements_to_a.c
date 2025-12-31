@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 15:56:45 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/29 15:57:38 by souhsain         ###   ########.fr       */
+/*   Updated: 2025/12/31 11:27:34 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,8 @@ int    get_pose_current_rank(node *stack, int rank_to_find)
 
 void    return_sorted_elements_to_a(node **a, node **b)
 {
-    int pose;
     int count;
 
-    pose = 0;
     count = size_ln(*b) - 1;
     while (*b)
     {
@@ -40,11 +38,10 @@ void    return_sorted_elements_to_a(node **a, node **b)
         {
             pa(b, a, 1);
             count--;
-           pose = get_pose_current_rank(*b, count);
         }
         else
         {
-            if (pose <= (count + 1) / 2)
+            if (get_pose_current_rank(*b, count) <= (count + 1) / 2)
                 rb(b, 1);
             else
                 rrb(b, 1);
