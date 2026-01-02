@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 10:22:20 by souhsain          #+#    #+#             */
-/*   Updated: 2026/01/02 13:07:05 by souhsain         ###   ########.fr       */
+/*   Updated: 2026/01/02 16:11:16 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int sort_by_chucks(node **a, node **b, size_t size_a)
         return (0);
     if (!(*a)->next)
         return (0);
-    if (size_a < 100)
+    if (size_a <= 100)
         chuck_size = 17;
     else
         chuck_size = 45;

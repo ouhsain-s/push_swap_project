@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 15:05:13 by souhsain          #+#    #+#             */
-/*   Updated: 2026/01/02 14:04:23 by souhsain         ###   ########.fr       */
+/*   Updated: 2026/01/02 16:12:08 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int    get_nearest_chuck_pose(node *stack, int chuck_max)
     }
     return (count_from_last - count_from_first);
 }
-int    get_pose_current_rank(node *stack, int rank_to_find)
+int    get_pose_current_frank(node *stack, int rank_to_find)
 {
     int count;
 
@@ -61,24 +61,25 @@ int    get_pose_current_rank(node *stack, int rank_to_find)
     }
     return (count);
 }
-int    push_fist_chuck_sorted(node **a, node **b, int chuck_max)
+int    push_frist_chuck_sorted(node **a, node **b, int chuck_max)
 {
     int count;
     int current_rank;
-    int rm;
+    int size_a;
     
     current_rank = 0;
     while (current_rank <= chuck_max)
     {
-        count = get_pose_current_rank(a, current_rank);
-        if (count <= chuck_max / 2)
+     count = get_pose_current_frank(*a, current_rank);
+        size_a = (int)(size_ln(*a) - 1);
+        if (count <= size_a / 2)
         {
             while (count--)
                 ra(a, 1);
         }
         else
         {
-            while (chuck_max + 1 - count++)
+            while (size_a + 1 - count++)
                 rra(a, 1);
         }
         pb(a, b, 1);
@@ -99,30 +100,17 @@ void    push_all_elements_to_b(node **a, node **b, int chuck_size)
     chuck_max = chuck_size -1;
     while (*a)
     {
-        if (chuck_min == 0)
-           num_pushed = push_fist_chuck_sorted(a, b, chuck_max);
         if ((*a)->rank <= chuck_max)
             push_element_to_b(a, b, chuck_min, chuck_size, &num_pushed);
         else
         {
-            // if (get_nearest_chuck_pose(*a, chuck_max) < (int)size_ln(*a) / 2)
-            //     ra(a, 1);
-            // else
-            //     rra(a, 1);
-
             if (get_nearest_chuck_pose(*a, chuck_max) >= 0)
                 ra(a, 1);
             else
                 rra(a, 1);
-            // printf("%ld", size_ln(*a));
-            // printf("\nnearest = %d B = %d\n", get_nearest_chunk_pos(*a, chuck_max), (*a)->value),sleep(600);
-            // ra(a, 1);
         }
         if (num_pushed == chuck_max + 1)
         {
-            //printf("min = %d   max = %d\n", chuck_min, chuck_max);
-            //print_stack(*b, 'b');
-            // sleep(10);
             chuck_min = chuck_max + 1;
             chuck_max += chuck_size;
         }
