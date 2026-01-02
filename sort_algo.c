@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 10:22:20 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/31 12:41:49 by souhsain         ###   ########.fr       */
+/*   Updated: 2026/01/02 13:07:05 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,16 @@ int sempel_sort(node **a, node **b)
     }
     return (1);
 }
+void    print_stack(node *stack, char name)
+{
+    printf("Stack %c:\n", name);
+    while (stack)
+    {
+        printf("value = %d | rank = %d\n", stack->value, stack->rank);
+        stack = stack->next;
+    }
+    printf("--------------\n");
+}
 
 int sort_by_chucks(node **a, node **b, size_t size_a)
 {
@@ -46,12 +56,11 @@ int sort_by_chucks(node **a, node **b, size_t size_a)
         return (0);
     if (!(*a)->next)
         return (0);
-    if (size_a <= 100)
+    if (size_a < 100)
         chuck_size = 17;
     else
         chuck_size = 45;
     push_all_elements_to_b(a, b, chuck_size);
-    //return(1);
     return_sorted_elements_to_a(a, b);
     return (1);    
 }
