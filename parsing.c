@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 21:29:05 by souhsain          #+#    #+#             */
-/*   Updated: 2026/01/03 14:28:38 by souhsain         ###   ########.fr       */
+/*   Updated: 2026/01/03 15:13:13 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	is_recognized_char_in_string(char *s, size_t index)
 {
-	if( ft_isdigit(s[index]))
+	if (ft_isdigit(s[index]))
 		return (1);
 	if (s[index] == '-' || s[index] == '+')
 	{
@@ -28,18 +28,18 @@ int	is_recognized_char_in_string(char *s, size_t index)
 			return (0);
 	}
 	if (s[index] == ' ')
-            return (1);		
+		return (1);
 	return (0);
 }
-int	check_duplicate(node *head)
+
+int	check_duplicate(t_node *head)
 {
-	node *tracker;
-	
+	t_node	*tracker;
+
 	if (!head)
-			return(1);
+		return (1);
 	while (head->next != NULL)
 	{
-		
 		tracker = head->next;
 		while (tracker != NULL)
 		{
@@ -49,12 +49,13 @@ int	check_duplicate(node *head)
 		}
 		head = head->next;
 	}
-		return (1);
+	return (1);
 }
-void	free_nodes(node *head)
+
+void	free_nodes(t_node *head)
 {
-	node *current;
-	
+	t_node	*current;
+
 	while (head)
 	{
 		current = head;

@@ -6,18 +6,19 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/27 13:26:49 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/30 11:20:00 by souhsain         ###   ########.fr       */
+/*   Updated: 2026/01/03 15:13:13 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ranking_nodes(node *head)
+int	ranking_nodes(t_node *head)
 {
-	node	*nested;
-	node	*least;
+	t_node	*nested;
+	t_node	*least;
 	size_t	size;
 	size_t	count;
+
 	if (!head)
 		return (0);
 	size = size_ln(head);
@@ -38,11 +39,11 @@ int	ranking_nodes(node *head)
 	return (1);
 }
 
-int swap_value_with_next(node **head)
+int	swap_value_with_next(t_node **head)
 {
-	int tmp_value;
+	int	tmp_value;
 	int	tmp_rank;
-	
+
 	if (!head)
 		return (0);
 	if (*head != NULL && (*head)->next != NULL)
@@ -57,11 +58,12 @@ int swap_value_with_next(node **head)
 	}
 	return (0);
 }
-int transfer_first_node(node **src, node **dest)
+
+int	transfer_first_node(t_node **src, t_node **dest)
 {
-	node *current;
-	
-	if(!src || !*src || !dest)
+	t_node	*current;
+
+	if (!src || !*src || !dest)
 		return (0);
 	current = *src;
 	*src = (*src)->next;
@@ -73,12 +75,13 @@ int transfer_first_node(node **src, node **dest)
 	*dest = current;
 	return (1);
 }
-int rotate_nodes(node **head)
+
+int	rotate_nodes(t_node **head)
 {
-	node    *new_first;
-	node    *last;
-	
-	if (!head || !*head|| !(*head)->next)
+	t_node	*new_first;
+	t_node	*last;
+
+	if (!head || !*head || !(*head)->next)
 		return (0);
 	new_first = (*head)->next;
 	last = new_first;
@@ -93,10 +96,11 @@ int rotate_nodes(node **head)
 	(*head)->previous = NULL;
 	return (1);
 }
-int revers_rotate_nodes(node **head)
+
+int	revers_rotate_nodes(t_node **head)
 {
-	node    *last;
-	
+	t_node	*last;
+
 	if (!head || !*head || !(*head)->next)
 		return (0);
 	last = *head;
