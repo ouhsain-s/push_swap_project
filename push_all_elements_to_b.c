@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 15:05:13 by souhsain          #+#    #+#             */
-/*   Updated: 2026/01/02 16:12:08 by souhsain         ###   ########.fr       */
+/*   Updated: 2026/01/03 14:12:07 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@ void    push_element_to_b(node **a, node **b, int min, int size,int *n_pushed)
     pb(a, b, 1);
     (*n_pushed)++;        
      if ((*b)->rank < min + (size / 2))
-         rb(b, 1);//printf("iam\n");
+         rb(b, 1);
 }
-
 int    get_nearest_chuck_pose(node *stack, int chuck_max)
 {
     int count_from_first;
@@ -115,5 +114,4 @@ void    push_all_elements_to_b(node **a, node **b, int chuck_size)
             chuck_max += chuck_size;
         }
     }
-    
 }

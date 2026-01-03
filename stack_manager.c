@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 16:06:52 by souhsain          #+#    #+#             */
-/*   Updated: 2025/12/30 11:16:39 by souhsain         ###   ########.fr       */
+/*   Updated: 2026/01/03 13:56:20 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	is_complet_number(char *s, int j)
 	if (s[j + 1] == '\0' && ft_isdigit(s[j]))
 		return(1);
 	if (ft_isdigit(s[j - 1]) && !ft_isdigit(s[j]))
-	return (1);
+		return (1);
 	return (0);
 }
 static int	counvert_num(char *arg, node **head, int *start, int j)
@@ -80,7 +80,7 @@ int	add_numbers_tostack(node **head, int num_s, char ** arr_s)
 			if (!is_recognized_char_in_string(arr_s[i], j))
 				return(0);
 			if (is_complet_number(arr_s[i], j))
-			{	
+			{
 				if (!counvert_num(arr_s[i], head, &start, j))
 					return (0);
 			}

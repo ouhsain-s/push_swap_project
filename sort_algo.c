@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 10:22:20 by souhsain          #+#    #+#             */
-/*   Updated: 2026/01/02 16:11:16 by souhsain         ###   ########.fr       */
+/*   Updated: 2026/01/03 13:30:55 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int sempel_sort(node **a, node **b)
     if (!a || !b || !*a)
         return (0);
     if (!(*a)->next)
-        return (0);
+        return (1);
     count = 0;
     while (*a)
     {
