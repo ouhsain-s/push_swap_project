@@ -6,13 +6,13 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 15:05:13 by souhsain          #+#    #+#             */
-/*   Updated: 2026/01/03 21:28:19 by souhsain         ###   ########.fr       */
+/*   Updated: 2026/01/04 11:55:36 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	push_element_to_b(t_node **a, t_node **b, int min, int size)
+static int	push_element_to_b(t_node **a, t_node **b, int min, int size)
 {
 	pb(a, b, 1);
 	if ((*b)->rank < min + (size / 2))
@@ -20,6 +20,7 @@ int	push_element_to_b(t_node **a, t_node **b, int min, int size)
 	return (1);
 }
 
+//that function is unused but it's useful in other cases
 int	get_nearest_chuck_pose(t_node *stack, int chuck_max)
 {
 	int		count_from_first;
@@ -46,48 +47,6 @@ int	get_nearest_chuck_pose(t_node *stack, int chuck_max)
 		revers_stack = revers_stack->previous;
 	}
 	return (count_from_last - count_from_first);
-}
-
-int	get_pose_current_frank(t_node *stack, int rank_to_find)
-{
-	int	count;
-
-	count = 0;
-	while (stack)
-	{
-		if (stack->rank == rank_to_find)
-			break ;
-		count++;
-		stack = stack->next;
-	}
-	return (count);
-}
-
-int	push_frist_chuck_sorted(t_node **a, t_node **b, int chuck_max)
-{
-	int	count;
-	int	current_rank;
-	int	size_a;
-
-	current_rank = 0;
-	while (current_rank <= chuck_max)
-	{
-		count = get_pose_current_frank(*a, current_rank);
-		size_a = (int)(size_ln(*a) - 1);
-		if (count <= size_a / 2)
-		{
-			while (count--)
-				ra(a, 1);
-		}
-		else
-		{
-			while (size_a + 1 - count++)
-				rra(a, 1);
-		}
-		pb(a, b, 1);
-		current_rank ++;
-	}
-	return (current_rank);
 }
 
 void	push_all_elements_to_b(t_node **a, t_node **b, int chuck_size)

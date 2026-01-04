@@ -6,13 +6,13 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 10:22:20 by souhsain          #+#    #+#             */
-/*   Updated: 2026/01/04 11:46:11 by souhsain         ###   ########.fr       */
+/*   Updated: 2026/01/04 12:00:46 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	sempel_sort(t_node **a, t_node **b)
+static int	sempel_sort(t_node **a, t_node **b)
 {
 	int	count;
 
@@ -38,7 +38,7 @@ int	sempel_sort(t_node **a, t_node **b)
 	return (1);
 }
 
-int	sort_by_chucks(t_node **a, t_node **b, size_t size_a)
+static int	sort_by_chucks(t_node **a, t_node **b, size_t size_a)
 {
 	int	chuck_size;
 

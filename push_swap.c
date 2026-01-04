@@ -6,13 +6,13 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:47:00 by souhsain          #+#    #+#             */
-/*   Updated: 2026/01/03 15:29:30 by souhsain         ###   ########.fr       */
+/*   Updated: 2026/01/04 11:55:55 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	wrong_sorting(t_node *a, t_node *b)
+static void	wrong_sorting(t_node *a, t_node *b)
 {
 	write(1, "Error\n", 6);
 	free_nodes(a);

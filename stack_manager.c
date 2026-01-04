@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 16:06:52 by souhsain          #+#    #+#             */
-/*   Updated: 2026/01/04 11:20:05 by souhsain         ###   ########.fr       */
+/*   Updated: 2026/01/04 12:03:38 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static int	counvert_num(char *arg, t_node **head, int *start, int j)
 	return (1);
 }
 
-int	parsing_current_arg(t_node **head, char **arr_s, int i)
+static int	parsing_current_arg(t_node **head, char **arr_s, int i)
 {
 	int	j;
 	int	start;

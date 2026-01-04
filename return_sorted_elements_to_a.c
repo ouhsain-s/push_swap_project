@@ -6,13 +6,13 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 15:56:45 by souhsain          #+#    #+#             */
-/*   Updated: 2026/01/03 15:22:49 by souhsain         ###   ########.fr       */
+/*   Updated: 2026/01/04 11:57:28 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_pose_current_rank(t_node *stack, int rank_to_find)
+static int	get_pose_current_rank(t_node *stack, int rank_to_find)
 {
 	int	count;
 
