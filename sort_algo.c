@@ -6,35 +6,33 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 10:22:20 by souhsain          #+#    #+#             */
-/*   Updated: 2026/01/04 12:00:46 by souhsain         ###   ########.fr       */
+/*   Updated: 2026/01/04 20:17:07 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	sempel_sort(t_node **a, t_node **b)
+static int	is_stack_sorted(t_node *stack)
 {
-	int	count;
+	while (stack->next)
+	{
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
+}
 
-	if (!a || !b || !*a)
-		return (0);
-	if (!(*a)->next)
-		return (1);
-	count = 0;
-	while (*a)
-	{
-		if ((*a)->rank == count)
-		{
-			pb(a, b, 1);
-			count++;
-		}
-		else
-			ra(a, 1);
-	}
-	while (*b)
-	{
-		pa(b, a, 1);
-	}
+static int	sempel_sort(t_node **a, t_node **b, size_t size_a)
+{
+	if (size_a == 2)
+		sort_tow_values(a);
+	if (size_a == 3)
+		sort_three_values(a);
+	if (size_a == 4)
+		sort_four_values(a, b);
+	if (size_a == 5)
+		sort_five_values(a, b);
 	return (1);
 }
 
@@ -60,10 +58,11 @@ int	sort_valuse_bytow_stacks(t_node **a, t_node **b)
 	size_t	size_a;
 
 	size_a = size_ln(*a);
+	if (is_stack_sorted(*a))
+		return (1);
+	if (size_a <= 5)
+		return (sempel_sort(a, b, size_a));
 	if (!ranking_nodes(*a))
 		return (0);
-	if (size_a <= 6)
-		return (sempel_sort(a, b));
-	else
-		return (sort_by_chucks(a, b, size_a));
+	return (sort_by_chucks(a, b, size_a));
 }

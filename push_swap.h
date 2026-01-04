@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 10:48:27 by souhsain          #+#    #+#             */
-/*   Updated: 2026/01/03 21:00:49 by souhsain         ###   ########.fr       */
+/*   Updated: 2026/01/04 19:48:43 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,10 @@ void	push_all_elements_to_b(t_node **a, t_node **b, int chuck_size);
 void	return_sorted_elements_to_a(t_node **a, t_node **b);
 
 void	push_chunks_to_b(t_node **a, t_node **b, int chuck_size);
+
+void	sort_tow_values(t_node **a);
+void	sort_three_values(t_node **a);
+void	sort_four_values(t_node **a, t_node **b);
+void	sort_five_values(t_node **a, t_node **b);
 
 #endif
