@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 10:22:20 by souhsain          #+#    #+#             */
-/*   Updated: 2026/01/03 15:29:51 by souhsain         ###   ########.fr       */
+/*   Updated: 2026/01/03 21:15:25 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	sort_valuse_bytow_stacks(t_node **a, t_node **b)
 	size_a = size_ln(*a);
 	if (!ranking_nodes(*a))
 		return (0);
-	if (size_a < 5)
+	if (size_a <= 5)
 		return (sempel_sort(a, b));
 	else
 		return (sort_by_chucks(a, b, size_a));

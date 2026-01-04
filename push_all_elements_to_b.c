@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 15:05:13 by souhsain          #+#    #+#             */
-/*   Updated: 2026/01/03 15:13:13 by souhsain         ###   ########.fr       */
+/*   Updated: 2026/01/03 21:28:19 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,12 +104,7 @@ void	push_all_elements_to_b(t_node **a, t_node **b, int chuck_size)
 		if ((*a)->rank <= chuck_max)
 			num_pushed += push_element_to_b(a, b, chuck_min, chuck_size);
 		else
-		{
-			if (get_nearest_chuck_pose(*a, chuck_max) >= 0)
-				ra(a, 1);
-			else
-				rra(a, 1);
-		}
+			ra(a, 1);
 		if (num_pushed == chuck_max + 1)
 		{
 			chuck_min = chuck_max + 1;

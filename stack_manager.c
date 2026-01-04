@@ -6,7 +6,7 @@
 /*   By: souhsain <souhsain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 16:06:52 by souhsain          #+#    #+#             */
-/*   Updated: 2026/01/03 15:37:40 by souhsain         ###   ########.fr       */
+/*   Updated: 2026/01/04 11:20:05 by souhsain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int	counvert_num(char *arg, t_node **head, int *start, int j)
 	int	value;
 
 	value = ft_atoi(ft_substr(arg, *start, j - *start + 1));
-	if ((value == -1))
+	if (value == -1)
 	{
 		if (!ft_strnstr(arg + *start, "-1", j - *start + 1))
 			return (0);
@@ -66,31 +66,39 @@ static int	counvert_num(char *arg, t_node **head, int *start, int j)
 	return (1);
 }
 
+int	parsing_current_arg(t_node **head, char **arr_s, int i)
+{
+	int	j;
+	int	start;
+
+	start = 0 ;
+	j = 0;
+	while (arr_s[i][j] != '\0')
+	{
+		if (!is_recognized_char_in_string(arr_s[i], j))
+			return (0);
+		if (is_complet_number(arr_s[i], j))
+		{
+			if (!counvert_num(arr_s[i], head, &start, j))
+				return (0);
+		}
+		j++;
+	}
+	return (start);
+}
+
 int	add_numbers_tostack(t_node **head, int num_s, char **arr_s)
 {
 	int		i;
-	int		j;
-	int		start;
 
 	i = 1;
 	while (i < num_s)
 	{
-		j = 0;
-		start = 0;
-		while (arr_s[i][j] != '\0')
-		{
-			if (!is_recognized_char_in_string(arr_s[i], j))
-				return (0);
-			if (is_complet_number(arr_s[i], j))
-			{
-				if (!counvert_num(arr_s[i], head, &start, j))
-					return (0);
-			}
-			j++;
-		}
-		if (!start) return (0);
+		if (!parsing_current_arg(head, arr_s, i))
+			return (0);
 		i++;
 	}
-	if (!check_duplicate(*head)) return (0);
+	if (!check_duplicate(*head))
+		return (0);
 	return (1);
 }
